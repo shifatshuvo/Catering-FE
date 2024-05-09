@@ -1,0 +1,97 @@
+<div class="flex items-center justify-center">
+  <div class="md:w-2/6 mt-8 bg-gray-300 px-4 py-6 rounded-md shadow-lg">
+    <button
+      class="font-semibold text-gray-600 hover:text-green-600"
+      routerLink="/admin/orders"
+    >
+      <fa-icon class="pr-2" [icon]="backIcon"></fa-icon>Back
+    </button>
+    <h1
+      class="text-3xl font-semibold text-center text-violet-600 font-serif py-4 px-2"
+    >
+      Update Orders --User--
+    </h1>
+    <p class="text-xl text-center text-green-600 font-semibold">{{updateOrderMessage}}</p>
+    <form
+      #updateOrder="ngForm"
+      (ngSubmit)="updateOrders(updateOrder.value)"
+      class="w-full- flex flex-col items-center gap-y-3 my-4 mx-4"
+    >
+      <select
+        class="w-full py-2 pl-4 rounded-md"
+        id="userId"
+        [(ngModel)]="selectedUser"
+        name="userId"
+        (ngModelChange)="onUserChange($event)"
+      >
+        <option class="" [ngValue]="undefined" [disabled]="true" selected>
+          ID: {{ orderData?.user?.id }} - {{ orderData?.user?.name }}
+        </option>
+        <option
+          class="bg-gray-100 hidden"
+          *ngFor="let user of userList"
+          [ngValue]="user.id"
+        >
+          ID: {{ user.id }} - {{ user.name }}
+        </option>
+      </select>
+      <!-- <select
+        class="w-full py-2 pl-4 rounded-md"
+        id="userId"
+        [(ngModel)]="selectedUser"
+        name="userId"
+        (ngModelChange)="onUserChange($event)"
+      >
+        <option class="" [ngValue]="undefined" [disabled]="true" selected>
+          ID: {{ orderData?.user?.id }} - {{ orderData?.user?.name }}
+        </option>
+        <option
+          class="bg-gray-100"
+          *ngFor="let user of userList"
+          [ngValue]="user.id"
+        >
+          ID: {{ user.id }} - {{ user.name }}
+        </option>
+      </select> -->
+      <select
+        class="w-full py-2 pl-4 rounded-md"
+        id="packageId"
+        [(ngModel)]="selectedPackage"
+        name="packageId"
+        (ngModelChange)="onPackageChange($event)"
+      >
+        <option class="" [ngValue]="undefined" [disabled]="true" selected>ID: {{orderData?.package?.id}} - {{orderData?.package?.name}}</option>
+        <option class="bg-gray-100" *ngFor="let package of pkgList" [ngValue]="package.id">
+          ID - {{package.id}} : {{ package.name }}
+        </option>
+      </select>
+      <!-- <select
+        class="w-full py-2 pl-4 rounded-md"
+        [(ngModel)]="selectedPackage"
+        (ngModelChange)="onPackageChange($event)"
+        name="packageId"
+      >
+        <option [ngValue]="undefined" [disabled]="true" selected>
+          ID: {{ orderData?.package?.id }} - {{ orderData?.package?.name }}
+        </option>
+        <option *ngFor="let package of pkgList" [ngValue]="package.id">
+          ID - {{ package.id }} : {{ package.name }}
+        </option>
+      </select> -->
+
+      <input
+        class="w-full outline-none rounded-md py-2 pl-4"
+        type="number"
+        name="quantity"
+        id="quantity"
+        ngModel="{{ orderData?.quantity }}"
+        placeholder="Enter quantity"
+      />
+      <button
+        class="w-32 bg-blue-500 text-gray-50 font-semibold py-2 mt-6 rounded-md"
+      >
+        Update
+      </button>
+    </form>
+  </div>
+</div>

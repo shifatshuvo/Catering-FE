@@ -1,0 +1,12 @@
+table td,
+table th {
+  border-bottom: 1px solid rgba(180, 175, 175, 0.945);
+  padding: 12px;
+  min-height: 160px;
+}
+/* table td,
+table th {
+  border: 1px solid maroon;
+  padding: 12px;
+  min-height: 160px;
+} */

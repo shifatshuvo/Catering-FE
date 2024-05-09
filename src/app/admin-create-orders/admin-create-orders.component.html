@@ -1,0 +1,67 @@
+<!-- main div Start -->
+<div class="flex">
+  <!-- nav start -->
+  <div class="w-1/5">
+    <app-side-nav />
+  </div>
+  <!-- nav end -->
+
+  <!-- right div start -->
+  <div class="w-full h-screen overflow-y-scroll bg-gray-200">
+    <div class="flex items-center justify-center">
+      <div class="md:w-2/6 mt-16 2xl:mt-28 bg-gray-300 px-4 py-6 rounded-md shadow-lg">
+        <button class="font-semibold text-gray-600 hover:text-green-600" routerLink="/admin/orders"><fa-icon class="pr-2" [icon]="backIcon"></fa-icon
+          >Back</button>
+        <h1
+          class="text-3xl font-semibold text-center text-violet-600 font-serif py-4 px-2"
+        >
+          Create Order
+        </h1>
+        <p class="text-xl text-center text-green-600 font-semibold">{{createOrderMessage}}</p>
+        <form
+          #createOrd="ngForm"
+          (ngSubmit)="createOrders(createOrd.value)"
+          class="w-full- flex flex-col items-center gap-y-3 my-4 mx-4"
+        >
+        <select
+            class="w-full py-2 pl-4 rounded-md"
+            id="userId"
+            [(ngModel)]="selectedUser"
+            name="userId"
+          >
+            <option class="" [ngValue]="undefined" [disabled]="true" selected>Select User</option>
+            <option class="bg-gray-100" *ngFor="let user of userList" [ngValue]="user.id">
+              ID - {{user.id}} : {{ user.name }}
+            </option>
+          </select>
+          <select
+            class="w-full py-2 pl-4 rounded-md"
+            id="packageId"
+            [(ngModel)]="selectedPackage"
+            name="packageId"
+          >
+            <option class="" [ngValue]="undefined" [disabled]="true" selected>Select package</option>
+            <option class="bg-gray-100" *ngFor="let package of pkgList" [ngValue]="package.id">
+              ID - {{package.id}} : {{ package.name }}
+            </option>
+          </select>
+          <input
+            class="w-full outline-none rounded-md py-2 pl-4"
+            type="number"
+            name="quantity"
+            id="quantity"
+            ngModel
+            placeholder="Enter quantity"
+          />
+          <button
+            class="w-32 bg-blue-500 text-gray-50 font-semibold py-2 mt-6 rounded-md"
+          >
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- right div end -->
+</div>
+<!-- main div End -->

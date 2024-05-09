@@ -1,0 +1,77 @@
+<!-- main div Start -->
+<div class="flex">
+  <!-- nav start -->
+  <div class="w-1/5">
+    <app-side-nav />
+  </div>
+  <!-- nav end -->
+
+  <!-- right div start -->
+  <div class="w-full h-screen overflow-y-scroll bg-gray-200">
+    <div class="flex items-center justify-center">
+      <div class="md:w-2/6 mt-16 2xl:mt-28 bg-gray-300 px-4 py-6 rounded-md shadow-lg">
+        <button class="font-semibold text-gray-600 hover:text-green-600" routerLink="/customers"><fa-icon class="pr-2" [icon]="backIcon"></fa-icon
+          >Back</button>
+        <h1
+          class="text-3xl font-semibold text-center text-violet-600 font-serif py-4 px-2"
+        >
+          Create Customer
+        </h1>
+        <p class="text-xl text-center text-green-600 font-semibold">{{createCustomerMessage}}</p>
+        <form
+          #createPack="ngForm"
+          (ngSubmit)="createCustomer(createPack.value)"
+          class="w-full- flex flex-col items-center gap-y-3 my-4 mx-4"
+        >
+          <input
+            class="w-full outline-none rounded-md py-2 pl-4"
+            type="text"
+            name="name"
+            id="name"
+            ngModel
+            placeholder="Enter name"
+          />
+          <input
+            class="w-full outline-none rounded-md py-2 pl-4"
+            type="text"
+            name="email"
+            id="email"
+            ngModel
+            placeholder="Enter email"
+          />
+          <input
+            class="w-full outline-none rounded-md py-2 pl-4"
+            type="text"
+            name="password"
+            id="password"
+            ngModel
+            placeholder="Enter password"
+          />
+          <input
+            class="w-full outline-none rounded-md py-2 pl-4"
+            type="text"
+            name="phone"
+            id="phone"
+            ngModel
+            placeholder="Enter phone"
+          />
+          <input
+            class="w-full outline-none rounded-md py-2 pl-4"
+            type="text"
+            name="role"
+            id="role"
+            ngModel
+            placeholder="Enter role"
+          />
+          <button
+            class="w-32 bg-blue-500 text-gray-50 font-semibold py-2 mt-6 rounded-md"
+          >
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- right div end -->
+</div>
+<!-- main div End -->
